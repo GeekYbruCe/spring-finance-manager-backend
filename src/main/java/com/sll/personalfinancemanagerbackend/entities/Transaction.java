@@ -1,12 +1,10 @@
 package com.sll.personalfinancemanagerbackend.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Entity
 public class Transaction {
 
     @Id
@@ -14,10 +12,14 @@ public class Transaction {
     private String description;
     private Double amount;
     private Date date;
-    private User user;
+//    private User user;
     private Long id;
     @ManyToOne
     private Category category;
+
+    public Transaction() {
+
+    }
 
     public String getDescription() {
         return description;
@@ -27,13 +29,13 @@ public class Transaction {
         this.description = description;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public Category getCategory() {
         return category;
@@ -70,7 +72,7 @@ public class Transaction {
 
     public Transaction(Long id, User user, Date date, Category category, Double amount, String description) {
         this.id = id;
-        this.user = user;
+//        this.user = user;
         this.date = date;
         this.category = category;
         this.amount = amount;
