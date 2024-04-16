@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface TransactionService {
     List<Transaction> getTransactions();
     Transaction getTransaction(Long id);

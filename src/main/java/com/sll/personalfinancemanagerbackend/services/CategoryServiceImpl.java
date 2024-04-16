@@ -18,6 +18,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public Category getCategoryByName(String name) {
+        return categoryRepository.findByName(name);
+    }
+
+
+    @Override
     public Category getCategoryById(Long id) {
         return categoryRepository.findById(id).orElse(null);
     }

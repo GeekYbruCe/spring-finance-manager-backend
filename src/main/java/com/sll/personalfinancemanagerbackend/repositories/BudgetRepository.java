@@ -1,4 +1,9 @@
 package com.sll.personalfinancemanagerbackend.repositories;
 
-public interface BudgetRepository {
+import com.sll.personalfinancemanagerbackend.entities.Budget;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BudgetRepository extends JpaRepository<Budget, Integer> {
+    public Budget findByName(String name);
+
 }

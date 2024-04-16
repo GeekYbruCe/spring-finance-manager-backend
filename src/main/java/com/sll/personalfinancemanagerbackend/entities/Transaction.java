@@ -12,7 +12,8 @@ public class Transaction {
     private String description;
     private Double amount;
     private Date date;
-//    private User user;
+    @ManyToOne
+    private User user;
     private Long id;
     @ManyToOne
     private Category category;
@@ -29,13 +30,13 @@ public class Transaction {
         this.description = description;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Category getCategory() {
         return category;
@@ -72,7 +73,7 @@ public class Transaction {
 
     public Transaction(Long id, User user, Date date, Category category, Double amount, String description) {
         this.id = id;
-//        this.user = user;
+        this.user = user;
         this.date = date;
         this.category = category;
         this.amount = amount;
