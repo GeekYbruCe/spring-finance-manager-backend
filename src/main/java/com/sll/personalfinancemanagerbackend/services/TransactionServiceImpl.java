@@ -1,15 +1,22 @@
 package com.sll.personalfinancemanagerbackend.services;
 
 import com.sll.personalfinancemanagerbackend.entities.Transaction;
+import com.sll.personalfinancemanagerbackend.exceptions.InsufficientFundsException;
 import com.sll.personalfinancemanagerbackend.repositories.TransactionRepository;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
 @Service
 public class TransactionServiceImpl implements TransactionService{
 
-    private TransactionRepository transactionRepository;
+    private final TransactionRepository transactionRepository;
+
+    public TransactionServiceImpl(TransactionRepository transactionRepository) {
+        this.transactionRepository = transactionRepository;
+    }
+
 
     @Override
     public List<Transaction> getTransactions() {
