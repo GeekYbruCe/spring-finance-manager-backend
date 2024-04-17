@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ControllerAdvice {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleResourceNotFound(ResourceNotFoundException ex) {
-        ErrorResponse errorResponse = new ErrorResponse("Resource not found: " + ex.getMessage());
+    private ResponseEntity<ErrorResponse> handleResourceNotFound(ResourceNotFoundException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(STR."Resource not found: \{ex.getMessage()}");
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
 
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<ErrorResponse> handleValidationException(ValidationException ex) {
-        ErrorResponse errorResponse = new ErrorResponse("Validation failed: " + ex.getMessage());
+    private ResponseEntity<ErrorResponse> handleValidationException(ValidationException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(STR."Validation failed: \{ex.getMessage()}");
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
-    class ErrorResponse {
-        private String message;
+    static class ErrorResponse {
+        private final String message;
 
-        public ErrorResponse(String message) {  // Public constructor
+        public ErrorResponse(String message) {
             this.message = message;
         }
 

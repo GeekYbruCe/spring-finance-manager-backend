@@ -2,10 +2,11 @@ package com.sll.personalfinancemanagerbackend.services;
 
 import com.sll.personalfinancemanagerbackend.entities.Budget;
 import com.sll.personalfinancemanagerbackend.repositories.BudgetRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
 public class BudgetServiceImpl implements BudgetService {
     private BudgetRepository budgetRepository;
 
@@ -16,7 +17,7 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
-    public Budget getBudgetById(int id) {
+    public Budget getBudgetById(Long id) {
         return budgetRepository.findById(id).orElse(null);
     }
 
@@ -31,7 +32,7 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
-    public void deleteBudget(int id) {
+    public void deleteBudget(Long id) {
         budgetRepository.deleteById(id);
 
     }

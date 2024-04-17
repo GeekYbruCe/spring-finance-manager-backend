@@ -7,9 +7,9 @@ import java.util.List;
 @Service
 public interface BudgetService {
     List<Budget> getAllBudgets();
-    Budget getBudgetById(int id);
+    Budget getBudgetById(Long id);
     Budget addBudget(Budget budget);
     Budget updateBudget(Budget budget);
-    void deleteBudget(int id);
+    void deleteBudget(Long id);
 
 }

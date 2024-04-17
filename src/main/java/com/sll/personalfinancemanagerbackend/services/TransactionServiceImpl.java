@@ -1,7 +1,6 @@
 package com.sll.personalfinancemanagerbackend.services;
 
 import com.sll.personalfinancemanagerbackend.entities.Transaction;
-import com.sll.personalfinancemanagerbackend.exceptions.InsufficientFundsException;
 import com.sll.personalfinancemanagerbackend.repositories.TransactionRepository;
 import org.springframework.stereotype.Service;
 
